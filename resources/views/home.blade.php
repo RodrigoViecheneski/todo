@@ -1,4 +1,9 @@
-<x-layout>
+<x-layout >
+    <x-slot:btn>
+        <a href="#" class="btn btn-primary">
+            Criar Tarefa
+        </a>
+    </x-slot:btn>
     <section class="graph">
         <div class="graph_header">
             <h2>Progresso do Dia</h2>
@@ -26,24 +31,17 @@
             </select>
         </div>
         <div class="task_list">
-            <div class="task">
-                <div class="title">
-                    <input type="checkbox" />
-                    <div class="task_title"> Título da Tarefa</div>
-                </div>
-                <div class="priority">
-                    <div class="sphere"></div>
-                    <div> Título da Tarefa</div>
-                </div>
-                <div class="actions">
-                    <a href="#">
-                        <img src="/assets/images/icon-edit.png"/>
-                    </a>
-                    <a href="#">
-                        <img src="/assets/images/icon-delete.png"/>
-                    </a>
-                </div>
-            </div>
+            @php
+                $tasks = [
+                    ['done' => false, 'title' => 'Minha Primeira Task', 'category' => 'Categoria 1', 'delete_url' => '#', 'edit_url' => '#'],
+                    ['done' => true, 'title' => 'Minha Segunda Task', 'category' => 'Categoria 2', 'delete_url' => '#', 'edit_url' => '#'],
+                    ['id' => 3,'done' => false, 'title' => 'Minha Terceira Task', 'category' => 'Categoria 1', 'delete_url' => 'https://google.com.br', 'edit_url' => 'https://uol.com.br'],
+                ]
+            @endphp
+            <x-task :data=$tasks[0]/>
+            <x-task :data=$tasks[1]/>
+            <x-task :data=$tasks[2]/>
+
         </div>
     </section>
 </x-layout>
