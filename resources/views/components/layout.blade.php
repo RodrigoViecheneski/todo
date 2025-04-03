@@ -22,6 +22,7 @@
         <div class="content">
             <nav>
                 {{$btn ?? null}}
+
             </nav>
             <main>
                 {{$slot}}
