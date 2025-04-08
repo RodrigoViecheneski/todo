@@ -31,16 +31,10 @@
             </select>
         </div>
         <div class="task_list">
-            @php
-                $tasks = [
-                    ['done' => false, 'title' => 'Minha Primeira Task', 'category' => 'Categoria 1', 'delete_url' => '#', 'edit_url' => '#'],
-                    ['done' => true, 'title' => 'Minha Segunda Task', 'category' => 'Categoria 2', 'delete_url' => '#', 'edit_url' => '#'],
-                    ['id' => 3,'done' => false, 'title' => 'Minha Terceira Task', 'category' => 'Categoria 1', 'delete_url' => 'https://google.com.br', 'edit_url' => 'https://uol.com.br'],
-                ]
-            @endphp
-            <x-task :data=$tasks[0]/>
-            <x-task :data=$tasks[1]/>
-            <x-task :data=$tasks[2]/>
+            @foreach ($tasks as $task)
+            <x-task :data=$task/>
+            @endforeach
+
 
         </div>
     </section>
