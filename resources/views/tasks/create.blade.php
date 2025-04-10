@@ -34,6 +34,9 @@
                 </label>
                <textarea name="description" placeholder="Digite uma descrição para sua task"></textarea>
             </div>
+            <div class="inputArea">
+                <button type="submit"> Criar Tarefa </button>
+            </div>
         </form>
     </section>
 
