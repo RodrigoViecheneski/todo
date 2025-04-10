@@ -7,35 +7,19 @@
     <section id="create_task_section">
         <h1>Criar tarefa</h1>
         <form>
+            <x-form.text_input name="title"  label="Título da task" required="required" placeholder="Digite o título da sua task"/>
+            <x-form.text_input type="date" name="due_date"  label="Data de Realização" required="required"/>
+            <x-form.select_input  name="category"  label="Categoria" placeholder="Selecione Categoria">
+                <option>Valor qualquer</option>
+            </x-form.select_input>
+            <x-form.textarea_input
+                label="Descrição da tarefa"
+                name="description"
+                placeholder="Digite a descrição da tarefa"
+            />
             <div class="inputArea">
-                <label for="title">
-                    Título da Task
-                </label>
-                <input id="title" name="title" required placeholder="Digite o título da tarefa!" />
-            </div>
-            <div class="inputArea">
-                <label for="due_date">
-                    Data de Realização
-                </label>
-                <input type="date" id="due_date" name="due_date" required placeholder="Digite o título da tarefa!" />
-            </div>
-            <div class="inputArea">
-                <label for="category">
-                    Categoria
-                </label>
-                <select id="category" name="category" required>
-                    <option selected disabled value=""/>Selecione a categoria </option>
-                    <option> Valor qualquer </option>
-                </select>
-            </div>
-            <div class="inputArea">
-                <label for="title">
-                    Descrição da tarefa
-                </label>
-               <textarea name="description" placeholder="Digite uma descrição para sua task"></textarea>
-            </div>
-            <div class="inputArea">
-                <button type="submit"> Criar Tarefa </button>
+                <button type="reset" class="btn"> Resetar </button>
+                <button type="submit" class="btn btn-primary"> Criar Tarefa </button>
             </div>
         </form>
     </section>

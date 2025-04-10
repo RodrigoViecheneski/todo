@@ -49,6 +49,8 @@ nav {
 a.btn {
     margin-left: 5px;
     text-decoration: none;
+    border: 0;
+    cursor: pointer;
 }
 .btn:hover {
     transform: scale(1.05);
@@ -212,5 +214,6 @@ h2 {
     border: 1px solid #333;
     padding: 5px 10px;
 }
+
 
 
