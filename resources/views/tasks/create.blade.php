@@ -4,23 +4,23 @@
             Voltar
         </a>
     </x-slot:btn>
-    <section id="create_task_section">
+    <section id="task_section">
         <h1>Criar tarefa</h1>
-        <form>
+        <form method="POST" action="{{route('task.create_action')}}">
+            @csrf <!--Define pin de acesso-->
             <x-form.text_input name="title"  label="Título da task" required="required" placeholder="Digite o título da sua task"/>
             <x-form.text_input type="date" name="due_date"  label="Data de Realização" required="required"/>
-            <x-form.select_input  name="category"  label="Categoria" placeholder="Selecione Categoria">
-                <option>Valor qualquer</option>
+            <x-form.select_input  name="category_id"  label="Categoria" placeholder="Selecione Categoria">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach;
             </x-form.select_input>
             <x-form.textarea_input
                 label="Descrição da tarefa"
                 name="description"
                 placeholder="Digite a descrição da tarefa"
             />
-            <div class="inputArea">
-                <button type="reset" class="btn"> Resetar </button>
-                <button type="submit" class="btn btn-primary"> Criar Tarefa </button>
-            </div>
+            <x-form.form_button resetTxt="Resetar" submitTxt="Criar Tarefa" />
         </form>
     </section>
 
