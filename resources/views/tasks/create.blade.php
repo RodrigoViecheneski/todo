@@ -9,7 +9,7 @@
         <form method="POST" action="{{route('task.create_action')}}">
             @csrf <!--Define pin de acesso-->
             <x-form.text_input name="title"  label="Título da task" required="required" placeholder="Digite o título da sua task"/>
-            <x-form.text_input type="date" name="due_date"  label="Data de Realização" required="required"/>
+            <x-form.text_input type="datetime-local" name="due_date"  label="Data de Realização" required="required"/>
             <x-form.select_input  name="category_id"  label="Categoria" placeholder="Selecione Categoria">
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->title}}</option>
