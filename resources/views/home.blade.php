@@ -3,10 +3,13 @@
         <a href="{{route('task.create')}}" class="btn btn-primary">
             Criar Tarefa
         </a>
+        <a href="{{route('logout')}}" class="btn btn-primary">
+            Sair
+        </a>
     </x-slot:btn>
     <section class="graph">
         <div class="graph_header">
-            <h2>Progresso do Dia</h2>
+            <h2>Progresso do Dia -</h2>
             <div class="graph_header-line"></div>
             <div class="graph_header-date">
                 <img src="/assets/images/icon-prev.png"/>
