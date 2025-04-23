@@ -41,4 +41,23 @@
 
         </div>
     </section>
+    <!--JSON parte front para marcar e desmarcar atividae realizada-->
+    <script>
+        async function taskUpdate(element){
+           let status = element.checked;
+           let taskId = element.dataset.id;
+           let url = '{{route('task.update')}}';
+           //alert(url);
+           let rawResult = await fetch(url, {
+            method: 'POST',
+            headers:{
+                'Content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            body: JSON.stringfy(status, taskId, _token: '{{ csrf_token()}}'),
+           });
+           result = await rawResult.json();
+           console.log(result);
+         }
+    </script>
 </x-layout>

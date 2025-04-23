@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     //
+    public function update(Request $request){
+        dd($request->all());
+    }
     public function index() {
 
     }
