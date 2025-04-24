@@ -41,11 +41,13 @@
 
         </div>
     </section>
-    <!--JSON parte front para marcar e desmarcar atividae realizada-->
+
     <script>
         async function taskUpdate(element){
+        //    alert(element.checked);
            let status = element.checked;
            let taskId = element.dataset.id;
+        //   alert(taskId);
            let url = '{{route('task.update')}}';
            //alert(url);
            let rawResult = await fetch(url, {
@@ -54,10 +56,14 @@
                 'Content-type': 'application/json',
                 'accept': 'application/json'
             },
-            body: JSON.stringfy(status, taskId, _token: '{{ csrf_token()}}'),
+            body: JSON.stringify({status, taskId, _token: '{{ csrf_token()}}'})
            });
            result = await rawResult.json();
-           console.log(result);
+           if(result.success) {
+            alert('Task Atualizada com Sucesso!');
+           } else {
+            element.checked = !status;
+           }
          }
     </script>
 </x-layout>

@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    //
+    //altera no bd status da task marcada ou desmarcada na home
     public function update(Request $request){
-        dd($request->all());
+        $task = Task::findOrFail($request->taskId);
+        //dd($task);
+        $task->is_done = $request->status;
+        $task->save();
+       return ['success' => true];
     }
     public function index() {
 
